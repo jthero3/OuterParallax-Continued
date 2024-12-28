@@ -3,15 +3,41 @@ Parallax configs for OPM and MPE, with custom assets.
 KSP forum thread:
 https://forum.kerbalspaceprogram.com/topic/220803-112x-outer-parallax-parallax-support-for-opm-and-mpe-w-custom-assets/
 
+# Gallery:
+
+Tekto:
+![390665540-352a0157-2ea1-4b8d-a954-d4629d5499d2](https://github.com/user-attachments/assets/1f6a1308-2308-493d-ab90-223436fa3969)
+
+Karen:
+![390665713-028b3fde-6645-436e-a702-6bdb62293f8e](https://github.com/user-attachments/assets/8b2c8292-d0b1-4551-8660-5fd05582e403)
+
+Ervo:
+![390665627-a75aec0c-93a7-415b-9a48-6720bbca5239](https://github.com/user-attachments/assets/7def0d1d-c7e9-43be-b164-cad31d02b439)
+
+Vant:
+![390665576-3e4be53b-c3e3-4df9-89b9-452818a148c1](https://github.com/user-attachments/assets/6fbf29f5-502a-43b0-8a5b-3d3eeaaae559)
+
 # Prerequisites
 
-* Either OPM/MPE or Both Installed.
-* Parallax Continued or V2.
+## Parallax:
+* [Parallax Continued](https://github.com/Gameslinx/Parallax-Continued/tree/master#readme)
+  
+   **--OR--**
 
-Optional:
+* [Parallax V2](https://github.com/Gameslinx/Tessellation/releases)
 
-* Deferred Rendering
-* EVE/Scatterer
+
+## Planet Packs:
+* [Outer Planets Mod](https://spacedock.info/mod/233/Outer+Planets+Mod)
+
+   **--AND/OR--**
+
+* [Minor Planets Expansion](https://spacedock.info/mod/2383/Minor%20Planets%20Expansion?ga=%3CGame+3102+%27Kerbal+Space+Program%27%3E)
+
+## Optional:
+
+* [Deferred Rendering](https://github.com/LGhassen/Deferred)
+* Volumetric Clouds
 
 # Installation
 
