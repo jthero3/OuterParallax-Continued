@@ -1,7 +1,9 @@
 # OuterParallax
-Parallax configs for OPM and MPE, with custom assets.
-KSP forum thread:
-https://forum.kerbalspaceprogram.com/topic/220803-112x-outer-parallax-parallax-support-for-opm-and-mpe-w-custom-assets/
+
+This is an update for the amazing Parallax Configs created  by Forum user Lithium-7. They have been updated to work with Parallax-Continued, to support all of the latest features. Including Ambient Occlusion, better scatter densities, and more. Fully supports all features up to Release 2 of Parallax Continued.
+
+The original forum post can be found [HERE](https://forum.kerbalspaceprogram.com/topic/220803-112x-outer-parallax-parallax-support-for-opm-and-mpe-w-custom-assets/)
+
 
 # Gallery:
 
@@ -48,17 +50,14 @@ Vant:
 
 ### Modified for Parallax Continued by jthero3:
 
-Current Status as of 11/28:
+Current Status as of 2/9:
  
 * **OPM**
-    * All Bodies have been updated to new PC format.
+    * All Bodies have been updated to new PC format. 
+    * Including full scatter, and terrain support.
     * All Bodies have Ambient Occlusion Support.
-    * No major scatter changes are expected, other than spawning tweaks.
-    * Same for terrain.
 
 * **MPE**
     * All Bodies have been updated to new PC format.
+    * Including full scatter, and terrain support.
     * All Bodies have Ambient Occlusion Support.
-    * Most Bodies are complete. Except for a few issues here and there.
-    * Geito has issues where no scatters spawn in the midle of the body.
-    * Lint-Mikey has similar issues. No scatters spawn on the poles.
