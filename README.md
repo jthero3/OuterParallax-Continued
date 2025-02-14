@@ -1,6 +1,6 @@
 # OuterParallax
 
-This is an update for the amazing Parallax Configs created  by Forum user Lithium-7. They have been updated to work with Parallax-Continued, to support all of the latest features. Including Ambient Occlusion, better scatter densities, and more. Fully supports all features up to Release 2 of Parallax Continued.
+This is an update for the amazing Parallax Configs created  by Forum user Lithium-7. They have been updated to work with Parallax-Continued, to support all of the latest features. Including Ambient Occlusion, better scatter densities, and more. Fully supports all features up to Release 3 of Parallax Continued.
 
 The original forum post can be found [HERE](https://forum.kerbalspaceprogram.com/topic/220803-112x-outer-parallax-parallax-support-for-opm-and-mpe-w-custom-assets/)
 
@@ -19,14 +19,16 @@ Ervo:
 Vant:
 ![390665576-3e4be53b-c3e3-4df9-89b9-452818a148c1](https://github.com/user-attachments/assets/6fbf29f5-502a-43b0-8a5b-3d3eeaaae559)
 
+Scaled Space:
+![screenshot33](https://github.com/user-attachments/assets/840f59c5-f42d-4084-9346-e6e1d7034259)
+
+![screenshot28](https://github.com/user-attachments/assets/e5849fcd-6c75-49d3-b72a-e2337a032bd1)
+
+
 # Prerequisites
 
 ## Parallax:
 * [Parallax Continued](https://github.com/Gameslinx/Parallax-Continued/tree/master#readme)
-  
-   **--OR--**
-
-* [Parallax V2](https://github.com/Gameslinx/Tessellation/releases)
 
 
 ## Planet Packs:
@@ -43,7 +45,7 @@ Vant:
 
 # Installation
 
-* Make sure you have either OPM/MPE, and Parallax Continued/V2 installed. 
+* Make sure you have either OPM/MPE, and Parallax Continued installed. 
 * Drop `OuterParallax` into your `GameData`.
 * **Optional:** There's an optional Lifeless Tekto Patch included in the Bonus folder.
 
