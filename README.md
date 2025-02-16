@@ -52,7 +52,7 @@ Scaled Space:
 
 # License:
 
-These configs were adpated from Lithobreakers Configs, which were released under the MIT license. 
+These configs were adpated from Lithobraker's Configs, which were released under the MIT license. 
 
 These configs are released under the same MIT license.
 
