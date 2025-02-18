@@ -50,7 +50,13 @@ Scaled Space:
 * **Optional:** There's an optional Lifeless Tekto Patch included in the Bonus folder.
 
 
-### Modified for Parallax Continued by jthero3:
+# License:
+
+These configs were adpated from Lithobraker's Configs, which were released under the MIT license. 
+
+These configs are released under the same MIT license.
+
+# Changelog:
 
 Current Status as of 2/9:
  
