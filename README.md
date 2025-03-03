@@ -27,11 +27,9 @@ Scaled Space:
 
 # Prerequisites
 
-## Parallax:
+## Required:
 * [Parallax Continued](https://github.com/Gameslinx/Parallax-Continued/tree/master#readme)
-
-
-## Planet Packs:
+* [VertexMitchellNetravaliHeightMap](https://github.com/pkmniako/Kopernicus_VertexMitchellNetravaliHeightMap/releases)
 * [Outer Planets Mod](https://spacedock.info/mod/233/Outer+Planets+Mod)
 
    **--AND/OR--**
@@ -45,7 +43,7 @@ Scaled Space:
 
 # Installation
 
-* Make sure you have either OPM/MPE, and Parallax Continued installed. 
+* Make sure you have either OPM/MPE, Parallax Continued, and Niako's Utils installed. 
 * Drop `OuterParallax` into your `GameData`.
 * **Optional:** There's an optional Lifeless Tekto Patch included in the Bonus folder.
 
@@ -58,7 +56,7 @@ These configs are released under the same MIT license.
 
 # Changelog:
 
-Current Status as of 2/9:
+Current Status as of 3/2:
  
 * **OPM**
     * All Bodies have been updated to new PC format. 
