@@ -43,6 +43,10 @@ The original forum post can be found [HERE](https://forum.kerbalspaceprogram.com
 
 # Installation
 
+**NOTE** I you're using MPE 1.1+, you must delete the included parallax patches. They can be found at:
+
+/GameData/MPE/Patches/Parallax. 
+
 * Make sure you have either OPM/MPE, Parallax Continued, and Niako's Utils installed. 
 * Drop `OuterParallax` into your `GameData`.
 * **Optional:** There's an optional Lifeless Tekto Patch included in the Bonus folder.
