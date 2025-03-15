@@ -58,6 +58,10 @@ These configs were adpated from Lithobraker's Configs, which were released under
 
 These configs are released under the same MIT license.
 
+# Credits:
+
+[iLikeGothMommys](https://github.com/iLikeGothMommys) - For Scaled Space Fixes
+
 # Changelog:
 
 Current Status as of 3/2:
@@ -71,3 +75,9 @@ Current Status as of 3/2:
     * All Bodies have been updated to new PC format.
     * Including full scatter, and terrain support.
     * All Bodies have Ambient Occlusion Support.
+
+* 0.4.0:
+    * Final Pass for now of scatters on all OPM/MPE Bodies. 
+    * Final Pass for now of all scaled space bodies.
+    * Fixed Soden.
+    * Edas scaled space still has a lot of terracing. Might have to redo the original MPE textures.
