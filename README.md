@@ -64,7 +64,7 @@ These configs are released under the same MIT license.
 
 # Changelog:
 
-Current Status as of 3/2:
+## Current Status as of 3/21:
  
 * **OPM**
     * All Bodies have been updated to new PC format. 
@@ -76,7 +76,10 @@ Current Status as of 3/2:
     * Including full scatter, and terrain support.
     * All Bodies have Ambient Occlusion Support.
 
-* 0.4.0:
+### 0.5.1:
+    * Updated all MPE Textures to MPE v1.1.1.
+
+### 0.4.0:
     * Final Pass for now of scatters on all OPM/MPE Bodies. 
     * Final Pass for now of all scaled space bodies.
     * Fixed Soden.
