@@ -64,7 +64,7 @@ These configs are released under the same MIT license.
 
 # Changelog:
 
-## Current Status as of 3/21:
+## Current Status as of 4/5/2025:
  
 * **OPM**
     * All Bodies have been updated to new PC format. 
@@ -75,6 +75,10 @@ These configs are released under the same MIT license.
     * All Bodies have been updated to new PC format.
     * Including full scatter, and terrain support.
     * All Bodies have Ambient Occlusion Support.
+
+
+### 0.5.2 - Sigma Rescale Fix
+    * Added compatibility patch for sigma rescales.
 
 ### 0.5.1:
     * Updated all MPE Textures to MPE v1.1.1.
