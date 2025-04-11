@@ -76,6 +76,9 @@ These configs are released under the same MIT license.
     * Including full scatter, and terrain support.
     * All Bodies have Ambient Occlusion Support.
 
+### 0.5.3 - OPX Compatibility
+    * Added compatibility patch OPX.
+    * Fixed Ervos Icebergs.
 
 ### 0.5.2 - Sigma Rescale Fix
     * Added compatibility patch for sigma rescales.
