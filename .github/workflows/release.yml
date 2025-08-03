@@ -33,8 +33,10 @@ jobs:
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: v${{ env.VERSION }}
-          name: Release v${{ env.VERSION }}
-          files: OuterParallax-MPE_${{ env.VERSION }}.zip OuterParallax-OPM_${{ env.VERSION }}.zip
+          tag_name: ${{ env.VERSION }}
+          name: Release ${{ env.VERSION }}
+          files: |
+            OuterParallax-MPE_${{ env.VERSION }}.zip
+            OuterParallax-OPM_${{ env.VERSION }}.zip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
