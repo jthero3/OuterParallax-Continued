@@ -1,0 +1,40 @@
+# Release workflow: packages repo and creates a tag based on version number when pushed to main
+
+name: Release
+
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+env:
+  VERSION: "0.5.7"
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Git user
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Package repository
+        run: |
+          zip -r OuterParallax-MPE_${{ env.VERSION }}.zip . -x '*.git*' -x '*.github*' -x 'GameData/OuterParallax/OuterParallax-OPM/*' -x 'GameData/OuterParallax/OuterParallax-OPM/*'
+          zip -r OuterParallax-OPM_${{ env.VERSION }}.zip . -x '*.git*' -x '*.github*' -x 'GameData/OuterParallax/OuterParallax-OPM/*' -x 'GameData/OuterParallax/OuterParallax-MPE/*'
+
+      - name: Create and push tag
+        run: |
+          git tag v${{ env.VERSION }}
+          git push origin v${{ env.VERSION }}
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: v${{ env.VERSION }}
+          name: Release v${{ env.VERSION }}
+          files: OuterParallax-MPE_${{ env.VERSION }}.zip OuterParallax-OPM_${{ env.VERSION }}.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
