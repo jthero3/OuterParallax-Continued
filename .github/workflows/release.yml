@@ -40,3 +40,53 @@ jobs:
             OuterParallax-OPM_${{ env.VERSION }}.zip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  upload-MPE:
+    needs: release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Download release zip
+        run: |
+          wget https://github.com/${{ github.repository }}/releases/download/${{ env.VERSION }}/OuterParallax-MPE_${{ env.VERSION }}.zip
+
+      - name: Login to Spacedock
+        run: |
+          curl -F username=jthero3 -F password=${{ secrets.SPACEDOCK }} -c ./cookies "https://spacedock.info/api/login"
+
+      - name: Update Mod
+        run: |
+          curl -b ./cookies \
+          -F "version=${{ env.VERSION }}" \
+          -F "changelog=Quick Fix" \
+          -F "game-version=1.12.5" \
+          -F "notify-followers=no" \
+          -F "zipball=@OuterParallax-MPE_${{ env.VERSION }}.zip" \
+          "https://spacedock.info/api/mod/3834/update"
+
+  upload-OPM:
+    needs: release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Download release zip
+        run: |
+          wget https://github.com/${{ github.repository }}/releases/download/${{ env.VERSION }}/OuterParallax-OPM_${{ env.VERSION }}.zip
+
+      - name: Login to Spacedock
+        run: |
+          curl -F username=jthero3 -F password=${{ secrets.SPACEDOCK }} -c ./cookies "https://spacedock.info/api/login"
+
+      - name: Update Mod
+        run: |
+          curl -b ./cookies \
+          -F "version=${{ env.VERSION }}" \
+          -F "changelog=Quick Fix" \
+          -F "game-version=1.12.5" \
+          -F "notify-followers=no" \
+          -F "zipball=@OuterParallax-OPM_${{ env.VERSION }}.zip" \
+          "https://spacedock.info/api/mod/3833/update"
