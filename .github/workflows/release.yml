@@ -27,8 +27,8 @@ jobs:
 
       - name: Create and push tag
         run: |
-          git tag v${{ env.VERSION }}
-          git push origin v${{ env.VERSION }}
+          git tag ${{ env.VERSION }}
+          git push origin ${{ env.VERSION }}
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
