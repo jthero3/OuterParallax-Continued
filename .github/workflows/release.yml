@@ -23,7 +23,7 @@ jobs:
       - name: Package repository
         run: |
           zip -r OuterParallax-MPE_${{ env.VERSION }}.zip . -x '*.git*' -x '*.github*' -x 'GameData/OuterParallax/OPM/*'
-          zip -r OuterParallax-OPM_${{ env.VERSION }}.zip . -x '*.git*' -x '*.github*' -x 'GameData/OuterParallax/MPE/*'
+          zip -r OuterParallax-OPM_${{ env.VERSION }}.zip . -x '*.git*' -x '*.github*' -x 'GameData/OuterParallax/MPE/*' -x 'OuterParallax-MPE_${{ env.VERSION }}.zip'
 
       - name: Create and push tag
         run: |
