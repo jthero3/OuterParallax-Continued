@@ -51,13 +51,6 @@ The original forum post can be found [HERE](https://forum.kerbalspaceprogram.com
 * Drop `OuterParallax` into your `GameData`.
 * **Optional:** There's an optional Lifeless Tekto Patch included in the Bonus folder.
 
-
-# License:
-
-These configs were adpated from Lithobraker's Configs, which were released under the MIT license. 
-
-These configs are released under the same MIT license.
-
 # Credits:
 
 [iLikeGothMommys](https://github.com/iLikeGothMommys) - For Scaled Space Fixes
@@ -93,3 +86,7 @@ These configs are released under the same MIT license.
     * Final Pass for now of all scaled space bodies.
     * Fixed Soden.
     * Edas scaled space still has a lot of terracing. Might have to redo the original MPE textures.
+
+# Licensing
+
+Configs in this Mod Is Distributed under [CC BY-NC-SA](https://creativecommons.org/licenses/by-nc-sa/4.0/). Textures are distributed as All Rights Reserved.
