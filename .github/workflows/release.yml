@@ -10,7 +10,7 @@ on:
 env:
   VERSION: "0.6.1"
 
-jobs: 
+jobs:
   release:
     runs-on: ubuntu-latest
     steps:
