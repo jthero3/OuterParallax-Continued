@@ -65,7 +65,6 @@ The original forum post can be found [HERE](https://forum.kerbalspaceprogram.com
     * Tekto Refresh:
         - Update some scatter spawns.
         - Added underwater scatters. Currently re-using Kerbins, but looking at more unique options. 
-        - Toned down the overly green light.
     * Moved all scaled textures to BC7/BC5/R16 File formats.
 
 ### 0.5.5 - Updated Scaled Space Atmo Textures
