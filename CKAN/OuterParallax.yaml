@@ -1,0 +1,23 @@
+identifier: OuterParallax
+name: Outer Parallax Common Files
+$kref: '#/ckan/github/jthero3/OuterParallax'
+$vref: '#/ckan/ksp-avc'
+abstract: Files common to OuterParallax-OPM and OuterParallax-MPE
+resources:
+  license: MIT
+  repository: https://github.com/jthero3/OuterParallax-Continued
+tags:
+  - config
+  - library
+depends:
+  - name: ModuleManager
+  - name: Kopernicus
+  - name: VertexMitchellNetravaliHeightMap
+  - name: VertexHeightOblateAdvanced
+  - name: ParallaxContinued
+supports:
+  - name: OPM
+  - name: MPE
+install:
+  - find: OuterParallax
+    install_to: GameData

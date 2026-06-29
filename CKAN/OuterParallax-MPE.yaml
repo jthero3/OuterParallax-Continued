@@ -1,0 +1,22 @@
+identifier: OuterParallax-MPE
+name: OuterParallax-MPE
+$kref: '#/ckan/github/jthero3/OuterParallax'
+$vref: '#/ckan/ksp-avc'
+abstract: Adds Parallax Continued configs for MPE with custom assets.
+resources:
+  license: MIT
+  repository: https://github.com/jthero3/OuterParallax-Continued
+tags:
+  - config
+  - library
+depends:
+  - name: ModuleManager
+  - name: Kopernicus
+  - name: VertexMitchellNetravaliHeightMap
+  - name: VertexHeightOblateAdvanced
+  - name: ParallaxContinued
+supports:
+  - name: MPE
+install:
+  - find: OuterParallax
+    install_to: GameData
