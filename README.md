@@ -30,6 +30,7 @@ The original forum post can be found [HERE](https://forum.kerbalspaceprogram.com
 ## Required Mods:
 * [Parallax Continued](https://github.com/Gameslinx/Parallax-Continued/tree/master#readme)
 * [VertexMitchellNetravaliHeightMap](https://github.com/pkmniako/Kopernicus_VertexMitchellNetravaliHeightMap/releases)
+* [VertexHeightOblateAdvanced](https://github.com/jamespglaze/VertexHeightOblateAdvanced/releases)
 * [Outer Planets Mod](https://spacedock.info/mod/233/Outer+Planets+Mod)
 
    **--AND/OR--**
@@ -43,11 +44,7 @@ The original forum post can be found [HERE](https://forum.kerbalspaceprogram.com
 
 # Installation
 
-**NOTE** I you're using MPE 1.1+, you must delete the included parallax patches. They can be found at:
-
-/GameData/MPE/Patches/Parallax. 
-
-* Make sure you have either OPM/MPE, Parallax Continued, and Niako's Utils installed. 
+* Make sure you have either OPM/MPE, Parallax Continued, Niako's Utils, and VertexHeightOblateAdvanced installed. 
 * Drop `OuterParallax` into your `GameData`.
 * **Optional:** There's an optional Lifeless Tekto Patch included in the Bonus folder.
 
@@ -57,17 +54,18 @@ The original forum post can be found [HERE](https://forum.kerbalspaceprogram.com
 
 # Changelog:
 
-## Current Status as of 4/5/2025:
- 
-* **OPM**
-    * All Bodies have been updated to new PC format. 
-    * Including full scatter, and terrain support.
-    * All Bodies have Ambient Occlusion Support.
+### 0.7.0 - KSPTextureLoader Support
 
-* **MPE**
-    * All Bodies have been updated to new PC format.
-    * Including full scatter, and terrain support.
-    * All Bodies have Ambient Occlusion Support.
+    * Added KSPTextureLoader Support
+        - Moved all textures over to AssetBundles. Reducing size by over half!
+    * Ovok Redone:
+        - Moved Ovok to an oblate model. Greatly increased scaled, and surface quality.
+        - Redid scaled textures. No more tiger stripes!
+        - Redid surface textures, and fixed surface being too smooth.
+    * Tekto Refresh:
+        - Update some scatter spawns.
+        - Added underwater scatters. Currently re-using Kerbins, but looking at more unique options. 
+    * Moved all scaled textures to BC7/BC5/R16 File formats.
 
 ### 0.5.5 - Updated Scaled Space Atmo Textures
 
