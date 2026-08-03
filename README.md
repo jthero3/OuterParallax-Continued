@@ -52,39 +52,6 @@ The original forum post can be found [HERE](https://forum.kerbalspaceprogram.com
 
 [iLikeGothMommys](https://github.com/iLikeGothMommys) - For Scaled Space Fixes
 
-# Changelog:
-
-### 0.7.0 - KSPTextureLoader Support
-
-    * Added KSPTextureLoader Support
-        - Moved all textures over to AssetBundles. Reducing size by over half!
-    * Ovok Redone:
-        - Moved Ovok to an oblate model. Greatly increased scaled, and surface quality.
-        - Redid scaled textures. No more tiger stripes!
-        - Redid surface textures, and fixed surface being too smooth.
-    * Tekto Refresh:
-        - Update some scatter spawns.
-        - Added underwater scatters. Currently re-using Kerbins, but looking at more unique options. 
-    * Moved all scaled textures to BC7/BC5/R16 File formats.
-
-### 0.5.5 - Updated Scaled Space Atmo Textures
-
-### 0.5.3 - OPX Compatibility
-    * Added compatibility patch OPX.
-    * Fixed Ervos Icebergs.
-
-### 0.5.2 - Sigma Rescale Fix
-    * Added compatibility patch for sigma rescales.
-
-### 0.5.1:
-    * Updated all MPE Textures to MPE v1.1.1.
-
-### 0.4.0:
-    * Final Pass for now of scatters on all OPM/MPE Bodies. 
-    * Final Pass for now of all scaled space bodies.
-    * Fixed Soden.
-    * Edas scaled space still has a lot of terracing. Might have to redo the original MPE textures.
-
 # Licensing
 
 Configs in this Mod Is Distributed under [CC BY-NC-SA](https://creativecommons.org/licenses/by-nc-sa/4.0/). Textures are distributed as All Rights Reserved.
