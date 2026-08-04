@@ -1,0 +1,51 @@
+name: publish-to-spacedock
+
+on:
+  release:
+    types: [released]
+
+jobs:
+  publish-to-spacedock:
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: read
+    strategy:
+      max-parallel: 1
+      fail-fast: false
+      matrix:
+        include:
+          - variant: MPE
+            mod-id: "3834"
+          - variant: OPM
+            mod-id: "3833"
+
+    steps:
+      - name: get-release-info
+        id: info
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          tag="${{ github.event.release.tag_name }}"
+          zip="OuterParallax-${{ matrix.variant }}_${tag}.zip"
+
+          gh release download "$tag" --pattern "$zip" --dir .
+          [ -s "$zip" ] || { echo "::error::$zip not found on release $tag"; exit 1; }
+
+          gh release view "$tag" --json body -q .body > /tmp/changelog.md
+
+          echo "version-string=$tag" >> "$GITHUB_OUTPUT"
+          echo "artifact-file=$zip" >> "$GITHUB_OUTPUT"
+          echo "changelog-file=/tmp/changelog.md" >> "$GITHUB_OUTPUT"
+          ls -lh "$zip"
+
+      - name: upload-to-spacedock
+        uses: KSP2Community/spacedock-upload@v1.0.0
+        with:
+          username: jthero3
+          password: ${{ secrets.SPACEDOCK }}
+          game_id: '3102'
+          mod_id: ${{ matrix.mod-id }}
+          version: ${{ steps.info.outputs.version-string }}
+          zipball: ${{ steps.info.outputs.artifact-file }}
+          changelog: ${{ steps.info.outputs.changelog-file }}

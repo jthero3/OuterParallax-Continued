@@ -1,0 +1,27 @@
+{
+	"NAME":"OuterParallax",
+	"DOWNLOAD":
+	"https://github.com/jthero3/OuterParallaxContinued/releases",
+	"URL":
+	"https://github.com/jthero3/OuterParallaxContinued/blob/main/GameData/OuterParallax/OuterParallax.version",
+	
+	"GITHUB":
+	{
+		"USERNAME":"jthero3",
+		"REPOSITORY":"https://github.com/jthero3/OuterParallaxContinued",
+		"ALLOW_PRE_RELEASE":true
+	},
+	"VERSION":
+	{
+		"MAJOR":@VERSION_MAJOR@,
+		"MINOR":@VERSION_MINOR@,
+		"PATCH":@VERSION_PATCH@,
+		"BUILD":0
+	},
+	"KSP_VERSION":
+	{
+		"MAJOR":1,
+		"MINOR":12,
+		"PATCH":5
+	},
+}

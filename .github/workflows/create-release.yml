@@ -1,0 +1,123 @@
+name: create-release
+
+on:
+  workflow_dispatch:
+    inputs:
+      version-string:
+        description: "major.minor.patch[.build], or --major / --minor / --patch to bump from CHANGELOG.md"
+        type: string
+        required: true
+
+env:
+  VARIANT_MPE: GameData/OuterParallax/MPE
+  VARIANT_OPM: GameData/OuterParallax/OPM
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  create-release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: true
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: update-version
+        id: version
+        uses: KSPModdingLibs/KSPBuildTools/.github/actions/update-version@1.1.1
+        with:
+          version-string: ${{ inputs.version-string }}
+          changelog-input-file: CHANGELOG.md
+          changelog-output-file: GameData/OuterParallax/changelog.cfg
+
+      - name: Verify version substitution
+        run: |
+          v=GameData/OuterParallax/OuterParallax.version
+          [ -s "$v" ] || { echo "::error::$v was not generated"; exit 1; }
+          if grep -q '@VERSION_' "$v"; then
+            echo "::error::$v still contains unsubstituted tokens"; grep -n '@VERSION_' "$v"; exit 1
+          fi
+          python3 -c "import json,sys; json.load(open('$v'))" \
+            || { echo "::error::$v is not valid JSON"; exit 1; }
+          echo "ok: $VERSION_STRING"
+          cat "$v"
+
+      - name: Commit and tag
+        run: |
+          [ -n "$VERSION_STRING" ] || { echo "::error::VERSION_STRING is empty"; exit 1; }
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A GameData/OuterParallax/OuterParallax.version
+          git commit --allow-empty -m "bump version to $VERSION_STRING"
+          git tag -f -a "$VERSION_STRING" -m "$VERSION_STRING"
+          git push --follow-tags origin HEAD:${{ github.ref_name }}
+
+      - name: Stage MPE variant
+        run: rm -rf "$VARIANT_OPM"
+
+      - name: assemble-release-MPE
+        id: assemble-MPE
+        uses: KSPModdingLibs/KSPBuildTools/.github/actions/assemble-release@1.1.1
+        with:
+          artifacts: GameData Bonus LICENSE* README* CHANGELOG*
+          artifacts-exclude: '**/*.pdb **/*.dds **/*.versiontemplate'
+          output-file-name: OuterParallax-MPE_${{ env.VERSION_STRING }}
+
+      - name: Stage OPM variant
+        run: |
+          git checkout -- "$VARIANT_OPM"
+          rm -rf "$VARIANT_MPE"
+
+      - name: assemble-release-OPM
+        id: assemble-OPM
+        uses: KSPModdingLibs/KSPBuildTools/.github/actions/assemble-release@1.1.1
+        with:
+          artifacts: GameData Bonus LICENSE* README* CHANGELOG*
+          artifacts-exclude: '**/*.pdb **/*.dds **/*.versiontemplate'
+          output-file-name: OuterParallax-OPM_${{ env.VERSION_STRING }}
+
+      - name: Restore worktree
+        run: git checkout -- "$VARIANT_MPE"
+
+      - name: Verify zip contents
+        run: |
+          fail=0
+          for pair in "MPE:${{ steps.assemble-MPE.outputs.artifact-zip-path }}:OPM" \
+                      "OPM:${{ steps.assemble-OPM.outputs.artifact-zip-path }}:MPE"; do
+            IFS=: read -r own zip other <<< "$pair"
+            list=$(unzip -Z1 "$zip")
+            n_own=$(grep -c "/OuterParallax/$own/"   <<< "$list" || true)
+            n_oth=$(grep -c "/OuterParallax/$other/" <<< "$list" || true)
+            n_dds=$(grep -ci '\.dds$'                <<< "$list" || true)
+            n_tpl=$(grep -ci 'versiontemplate$'      <<< "$list" || true)
+            n_ver=$(grep -c  'OuterParallax\.version$' <<< "$list" || true)
+            printf '%s zip: %s own, %s stray %s, %s dds, %s templates, %s version file\n' \
+              "$own" "$n_own" "$n_oth" "$other" "$n_dds" "$n_tpl" "$n_ver"
+            [ "$n_own" -gt 0 ] || { echo "::error::$own zip has no $own files"; fail=1; }
+            [ "$n_oth" -eq 0 ] || { echo "::error::$own zip contains $other files"; fail=1; }
+            [ "$n_dds" -eq 0 ] || { echo "::error::$own zip contains loose .dds"; fail=1; }
+            [ "$n_tpl" -eq 0 ] || { echo "::error::$own zip contains a .versiontemplate"; fail=1; }
+            [ "$n_ver" -eq 1 ] || { echo "::error::$own zip missing OuterParallax.version"; fail=1; }
+          done
+          exit $fail
+
+      - name: create-release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "$VERSION_STRING" \
+            --draft \
+            --title "Release $VERSION_STRING" \
+            --notes-file "$RELEASE_NOTES_FILE" \
+            "${{ steps.assemble-MPE.outputs.artifact-zip-path }}" \
+            "${{ steps.assemble-OPM.outputs.artifact-zip-path }}"
