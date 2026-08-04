@@ -9,8 +9,6 @@ on:
         required: true
 
 env:
-  # Variant subtrees under GameData/OuterParallax. Each release zip gets one of
-  # these; Textures/, _Scatters/ and Localization/ are shared and go into both.
   VARIANT_MPE: GameData/OuterParallax/MPE
   VARIANT_OPM: GameData/OuterParallax/OPM
 
@@ -30,19 +28,10 @@ jobs:
         with:
           submodules: true
 
-      # update-version calls `python -m pip`; don't rely on the runner image alias.
       - uses: actions/setup-python@v5
         with:
           python-version: '3.x'
 
-      # Asset bundles are intentionally not built here. Once OuterParallax has a
-      # bundle source tree and a KSPTextureLoader manifest, lift that block from
-      # the QuackPack workflow.
-
-      # Reads CHANGELOG.md, promotes '## Unreleased' to the new version, writes
-      # changelog.cfg for KerbalChangelog and release notes to $RELEASE_NOTES_FILE,
-      # then substitutes @VERSION_*@ tokens in *.versiontemplate and deletes the
-      # templates. VERSION_STRING lands in GITHUB_ENV.
       - name: update-version
         id: version
         uses: KSPModdingLibs/KSPBuildTools/.github/actions/update-version@1.1.1
@@ -51,8 +40,6 @@ jobs:
           changelog-input-file: CHANGELOG.md
           changelog-output-file: GameData/OuterParallax/changelog.cfg
 
-      # If the template glob missed, the shipped .version is invalid JSON and
-      # KSP-AVC/CKAN silently break. Fail here instead.
       - name: Verify version substitution
         run: |
           v=GameData/OuterParallax/OuterParallax.version
@@ -75,10 +62,6 @@ jobs:
           git tag -f -a "$VERSION_STRING" -m "$VERSION_STRING"
           git push --follow-tags origin HEAD:${{ github.ref_name }}
 
-      # assemble-release's `artifacts-exclude` runs `rm -f`, which errors on a
-      # directory under set -e. So the variant split removes the unwanted subtree
-      # from the worktree and restores it from the index afterwards. Loose .dds is
-      # excluded via the glob, which is file-only and therefore safe.
       - name: Stage MPE variant
         run: rm -rf "$VARIANT_OPM"
 
@@ -106,8 +89,6 @@ jobs:
       - name: Restore worktree
         run: git checkout -- "$VARIANT_MPE"
 
-      # Catches the failure mode where both zips come out identical because the
-      # variant staging silently did nothing, and confirms textures were dropped.
       - name: Verify zip contents
         run: |
           fail=0
